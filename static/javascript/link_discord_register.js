@@ -7,11 +7,11 @@ async function check_discord_link() {
 
     if (result.status_code === 200) {
         if (result.result[3]) {
-            open_tab("index.html")
+            open_tab("index")
         }
     } else {
         if (result.status_code === 401) {
-            open_tab("login.html")
+            open_tab("login")
         } else {
             show_info_modal("Ошибка", "Произошла непредвиденная ошибка. Попробуйте еще раз.");
         }

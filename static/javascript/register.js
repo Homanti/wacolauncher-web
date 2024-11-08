@@ -44,9 +44,9 @@ async function register_account() {
 
             if (result.status_code === 200) {
                 if (result.result[3]) {
-                    open_tab("index.html");
+                    open_tab("index");
                 } else {
-                    open_tab("link_discord_register.html");
+                    open_tab("link_discord_register");
                 }
 
             } else {

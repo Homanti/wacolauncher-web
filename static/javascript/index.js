@@ -36,7 +36,7 @@ async function switchAccount(name, password) {
         const accounts = await window.pywebview.api.readJson("data/credentials.json");
 
         if (accounts.length <= 0) {
-            open_tab("login.html", "Ошибка", "Неверный логин или пароль.");
+            open_tab("login", "Ошибка", "Неверный логин или пароль.");
         } else {
             const active_account = await window.pywebview.api.get_active_account();
             switchAccount(active_account.nickname, active_account.password);
@@ -104,7 +104,7 @@ function updateDropdown(accounts) {
     var addButton = document.createElement('button');
     addButton.className = 'profile-button';
     addButton.onclick = function() {
-        open_tab("login.html");
+        open_tab("login");
     };
 
     var addProfileDetails = document.createElement('div');
