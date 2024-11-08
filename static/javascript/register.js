@@ -27,40 +27,48 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 async function register_account() {
-    try {
-        const skinFile = skin.files[0];
+    const isValid = /^[A-Za-z0-9]+$/.test(nickname.value);
 
-        const reader = new FileReader();
-        reader.readAsArrayBuffer(skinFile);
-        reader.onloadend = async function () {
-            const skinBytes = Array.from(new Uint8Array(reader.result));
-            const result = await window.pywebview.api.account_register(
-                nickname.value,
-                password.value,
-                history.value,
-                how_did_you_find.value,
-                skinBytes
-            );
+    if (nickname.value.length < 3) {
+        show_info_modal("Ошибка", "Никнейм должен содержать как минимум 3 символа.")
+    } else if (!isValid) {
+        show_info_modal("Ошибка", "Никнейм не должен содержать кириллицу, пробелы и специальные знаки.")
+    } else {
+        try {
+            const skinFile = skin.files[0];
 
-            if (result.status_code === 200) {
-                if (result.result[3]) {
-                    open_tab("index");
+            const reader = new FileReader();
+            reader.readAsArrayBuffer(skinFile);
+            reader.onloadend = async function () {
+                const skinBytes = Array.from(new Uint8Array(reader.result));
+                const result = await window.pywebview.api.account_register(
+                    nickname.value,
+                    password.value,
+                    history.value,
+                    how_did_you_find.value,
+                    skinBytes
+                );
+
+                if (result.status_code === 200) {
+                    if (result.result[3]) {
+                        open_tab("index");
+                    } else {
+                        open_tab("link_discord_register");
+                    }
+
                 } else {
-                    open_tab("link_discord_register");
+                    if (result.status_code === 409) {
+                        show_info_modal("Ошибка", "Аккаунт с таким ником уже существует")
+                    } else {
+                        show_info_modal("Ошибка", "Произошла непредвиденная ошибка. Попробуйте еще раз.");
+                    }
                 }
+            };
 
-            } else {
-                if (result.status_code === 409) {
-                    show_info_modal("Ошибка", "Аккаунт с таким ником уже существует")
-                } else {
-                    show_info_modal("Ошибка", "Произошла непредвиденная ошибка. Попробуйте еще раз.");
-                }
-            }
-        };
-
-    } catch (error) {
-        show_info_modal("Ошибка", "Произошла ошибка при регистрации. Пожалуйста, попробуйте еще раз.");
-        console.error(error);
+        } catch (error) {
+            show_info_modal("Ошибка", "Произошла ошибка при регистрации. Пожалуйста, попробуйте еще раз.");
+            console.error(error);
+        }
     }
 }
 
