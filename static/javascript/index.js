@@ -29,7 +29,8 @@ function toggleDropdown() {
 
 // Функция для переключения аккаунтов
 async function switchAccount(name) {
-    const result = await window.pywebview.api.account_login(name);
+    const password = await window.pywebview.api.get_password(name);
+    const result = await window.pywebview.api.account_login(name, password);
 
     if (result.status_code === 401) {
         show_info_modal("Ошибка", "Неверный логин или пароль.");
