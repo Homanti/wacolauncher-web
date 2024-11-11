@@ -28,8 +28,8 @@ function toggleDropdown() {
 }
 
 // Функция для переключения аккаунтов
-async function switchAccount(name, password) {
-    const result = await window.pywebview.api.account_login(name, password);
+async function switchAccount(name) {
+    const result = await window.pywebview.api.account_login(name);
 
     if (result.status_code === 401) {
         show_info_modal("Ошибка", "Неверный логин или пароль.");
@@ -39,7 +39,7 @@ async function switchAccount(name, password) {
             open_tab("login", "Ошибка", "Неверный логин или пароль.");
         } else {
             const active_account = await window.pywebview.api.get_active_account();
-            switchAccount(active_account.nickname, active_account.password);
+            switchAccount(active_account.nickname);
         }
     }
 
@@ -70,7 +70,7 @@ function updateDropdown(accounts) {
         var accountButton = document.createElement('button');
         accountButton.className = 'profile-button';
         accountButton.onclick = function() {
-            switchAccount(account.nickname, account.password);
+            switchAccount(account.nickname);
         };
 
         var avatarCanvas = document.createElement('canvas');

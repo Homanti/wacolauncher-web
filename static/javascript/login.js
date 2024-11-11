@@ -27,7 +27,7 @@ window.addEventListener('pywebviewready', async function() {
 
 
 async function login_account() {
-    const result = await window.pywebview.api.account_login(nickname.value, password.value);
+    const result = await window.pywebview.api.account_login(nickname.value);
 
     if (result.status_code === 200) {
         if (result.result[3]) {
