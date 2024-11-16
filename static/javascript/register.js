@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 async function register_account() {
-    const isValid = /^[A-Za-z0-9]+$/.test(nickname.value);
+    const isValid = /^[A-Za-z0-9-_]+$/.test(nickname.value);
 
     if (nickname.value.length < 3) {
         show_info_modal("Ошибка", "Никнейм должен содержать как минимум 3 символа.")
