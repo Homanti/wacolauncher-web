@@ -38,8 +38,8 @@ window.addEventListener('pywebviewready', async function() {
     document.getElementById("ram_input").value = ram;
     document.getElementById("ram_range").value = ram;
 
-    setInterval(fetchPlayersOnline, 5000);
     fetchPlayersOnline();
+    setInterval(fetchPlayersOnline, 5000);
 });
 
 document.getElementById("button_update_skin").addEventListener("click", async function() {

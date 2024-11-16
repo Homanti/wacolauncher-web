@@ -54,8 +54,8 @@ async function switchAccount(name) {
 
 window.addEventListener('pywebviewready', function() {
     update_dropdown();
-    setInterval(fetchPlayersOnline, 5000);
     fetchPlayersOnline();
+    setInterval(fetchPlayersOnline, 5000);
 });
 
 // Функция для обновления дропдауна с аккаунтами
