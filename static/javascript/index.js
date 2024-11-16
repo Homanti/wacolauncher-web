@@ -136,3 +136,12 @@ window.onclick = function(event) {
 document.getElementById('btn_play').addEventListener('click', async function () {
     window.pywebview.api.start_minecraft();
 });
+
+async function fetchPlayersOnline() {
+    const players_online = await pywebview.api.get_server_online();
+
+    document.getElementById('players_online').textContent = `Игроков на сервере: ${players_online}`;
+}
+
+setInterval(fetchPlayersOnline, 5000);
+fetchPlayersOnline();
