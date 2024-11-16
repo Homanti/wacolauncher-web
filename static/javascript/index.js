@@ -140,7 +140,11 @@ document.getElementById('btn_play').addEventListener('click', async function () 
 async function fetchPlayersOnline() {
     const players_online = await pywebview.api.get_server_online();
 
-    document.getElementById('players_online').textContent = `Игроков на сервере: ${players_online}`;
+    if (players_online !== false) {
+        document.getElementById('players_online').textContent = `Игроков на сервере: ${players_online}`;
+    } else {
+        document.getElementById('players_online').textContent = `Сервер оффлайн`;
+    }
 }
 
 setInterval(fetchPlayersOnline, 5000);
