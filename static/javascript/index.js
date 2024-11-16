@@ -58,6 +58,10 @@ window.addEventListener('pywebviewready', function() {
     setInterval(fetchPlayersOnline, 5000);
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    fetchPlayersOnline();
+});
+
 // Функция для обновления дропдауна с аккаунтами
 async function update_dropdown() {
     const accounts = await window.pywebview.api.readJson("data/credentials.json");
