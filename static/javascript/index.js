@@ -54,6 +54,8 @@ async function switchAccount(name) {
 
 window.addEventListener('pywebviewready', function() {
     update_dropdown();
+    setInterval(fetchPlayersOnline, 5000);
+    fetchPlayersOnline();
 });
 
 // Функция для обновления дропдауна с аккаунтами
@@ -146,6 +148,3 @@ async function fetchPlayersOnline() {
         document.getElementById('players_online').textContent = `Сервер оффлайн`;
     }
 }
-
-setInterval(fetchPlayersOnline, 5000);
-fetchPlayersOnline();
