@@ -42,37 +42,37 @@ window.addEventListener('pywebviewready', async function() {
     setInterval(fetchPlayersOnline, 5000);
 });
 
-document.getElementById("button_update_skin").addEventListener("click", async function() {
-    try {
-        const active_account = await window.pywebview.api.get_active_account();
-        const skinFile = skin.files[0];
-
-        if (active_account.status_code === 200){
-            const reader = new FileReader();
-
-            reader.readAsArrayBuffer(skinFile);
-            reader.onloadend = async function () {
-                const skinBytes = Array.from(new Uint8Array(reader.result));
-                const result = await window.pywebview.api.update_skin(
-                    active_account.result[1],
-                    active_account.result[2],
-                    skinBytes
-                );
-
-                if (result === true) {
-                    show_info_modal("Успешно", "Скин успешно изменен")
-                } else {
-                    show_info_modal("Ошибка", "Произошла непредвиденная ошибка. Попробуйте еще раз.");
-                }
-            }
-        } else {
-            show_info_modal("Ошибка", "Неверный логин или пароль");
-        }
-    } catch (error) {
-        show_info_modal("Ошибка", "Произошла ошибка при смене скина. Пожалуйста, попробуйте еще раз.");
-        console.error(error);
-    }
-});
+// document.getElementById("button_update_skin").addEventListener("click", async function() {
+//     try {
+//         const active_account = await window.pywebview.api.get_active_account();
+//         const skinFile = skin.files[0];
+//
+//         if (active_account.status_code === 200){
+//             const reader = new FileReader();
+//
+//             reader.readAsArrayBuffer(skinFile);
+//             reader.onloadend = async function () {
+//                 const skinBytes = Array.from(new Uint8Array(reader.result));
+//                 const result = await window.pywebview.api.update_skin(
+//                     active_account.result[1],
+//                     active_account.result[2],
+//                     skinBytes
+//                 );
+//
+//                 if (result === true) {
+//                     show_info_modal("Успешно", "Скин успешно изменен")
+//                 } else {
+//                     show_info_modal("Ошибка", "Произошла непредвиденная ошибка. Попробуйте еще раз.");
+//                 }
+//             }
+//         } else {
+//             show_info_modal("Ошибка", "Неверный логин или пароль");
+//         }
+//     } catch (error) {
+//         show_info_modal("Ошибка", "Произошла ошибка при смене скина. Пожалуйста, попробуйте еще раз.");
+//         console.error(error);
+//     }
+// });
 
 document.getElementById("button_update_password").addEventListener("click", async function() {
     const old_password = document.getElementById("input_old_password").value;

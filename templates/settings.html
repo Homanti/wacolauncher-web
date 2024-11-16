@@ -38,44 +38,44 @@
 
     <div class="container-settings-profile">
         <p>Настройки аккаунта</p>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeSkinModal">Поменять скин</button>
+{#        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeSkinModal">Поменять скин</button>#}
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePasswordModal">Поменять пароль</button>
         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">Удалить аккаунт</button>
     </div>
 </div>
 
-<!-- Modal для изменения скина -->
-<div class="modal fade" id="changeSkinModal" tabindex="-1" aria-labelledby="changeSkinModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="changeSkinModalLabel">Изменение скина</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-            </div>
-            <div class="modal-body">
-                <p>Тип изменений</p>
-                <select class="form-select modal-input-skin" id="type-change-skin">
-                    <option value="0">Маленькие изменение (Шрамы, одежда, прическа)</option>
-                    <option value="1">Большие изменение (Требуется пластическая операция)</option>
-                </select>
-
-                <div class="mt-3" id="input-id-document-plastic-surgery">
-                    <p>ID документа, подтверждающий пластическую операцию</p>
-                    <input type="number" class="form-control modal-input-skin">
-                </div>
-
-                <div class="input-group mb-3 modal-input-skin">
-                    <p>Выберите скин</p>
-                    <input type="file" class="form-control" id="input_skin" accept=".png">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="button_update_skin">Поменять скин</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-            </div>
-        </div>
-    </div>
-</div>
+{#<!-- Modal для изменения скина -->#}
+{#<div class="modal fade" id="changeSkinModal" tabindex="-1" aria-labelledby="changeSkinModalLabel" aria-hidden="true">#}
+{#    <div class="modal-dialog">#}
+{#        <div class="modal-content">#}
+{#            <div class="modal-header">#}
+{#                <h5 class="modal-title" id="changeSkinModalLabel">Изменение скина</h5>#}
+{#                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>#}
+{#            </div>#}
+{#            <div class="modal-body">#}
+{#                <p>Тип изменений</p>#}
+{#                <select class="form-select modal-input-skin" id="type-change-skin">#}
+{#                    <option value="0">Маленькие изменение (Шрамы, одежда, прическа)</option>#}
+{#                    <option value="1">Большие изменение (Требуется пластическая операция)</option>#}
+{#                </select>#}
+{##}
+{#                <div class="mt-3" id="input-id-document-plastic-surgery">#}
+{#                    <p>ID документа, подтверждающий пластическую операцию</p>#}
+{#                    <input type="number" class="form-control modal-input-skin">#}
+{#                </div>#}
+{##}
+{#                <div class="input-group mb-3 modal-input-skin">#}
+{#                    <p>Выберите скин</p>#}
+{#                    <input type="file" class="form-control" id="input_skin" accept=".png">#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="modal-footer">#}
+{#                <button type="button" class="btn btn-primary" id="button_update_skin">Поменять скин</button>#}
+{#                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
 
 <!-- Modal для изменения пароля -->
 <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
