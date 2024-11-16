@@ -148,3 +148,5 @@ async function fetchPlayersOnline() {
         document.getElementById('players_online').textContent = `Сервер оффлайн`;
     }
 }
+
+fetchPlayersOnline();
