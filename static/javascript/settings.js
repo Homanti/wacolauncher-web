@@ -19,13 +19,13 @@ document.getElementById("ram_input").addEventListener("blur", function() {
     document.getElementById("ram_range").value = value;
 });
 
-document.getElementById("type-change-skin").addEventListener("input", function() {
-    if (this.value == 1) {
-        document.getElementById("input-id-document-plastic-surgery").style.display = "block";
-    } else {
-        document.getElementById("input-id-document-plastic-surgery").style.display = "none";
-    }
-});
+// document.getElementById("type-change-skin").addEventListener("input", function() {
+//     if (this.value == 1) {
+//         document.getElementById("input-id-document-plastic-surgery").style.display = "block";
+//     } else {
+//         document.getElementById("input-id-document-plastic-surgery").style.display = "none";
+//     }
+// });
 
 window.addEventListener('pywebviewready', async function() {
     const max_ram = await window.pywebview.api.get_max_ram();
