@@ -42,10 +42,6 @@ window.addEventListener('pywebviewready', async function() {
     setInterval(fetchPlayersOnline, 5000);
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    fetchPlayersOnline();
-});
-
 document.getElementById("button_update_skin").addEventListener("click", async function() {
     try {
         const active_account = await window.pywebview.api.get_active_account();
