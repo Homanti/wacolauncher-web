@@ -74,36 +74,36 @@ window.addEventListener('pywebviewready', async function() {
 //     }
 // });
 
-document.getElementById("button_update_password").addEventListener("click", async function() {
-    const old_password = document.getElementById("input_old_password").value;
-    const new_password = document.getElementById("input_new_password").value;
-
-    const active_account = await window.pywebview.api.get_active_account();
-    const result = await window.pywebview.api.update_password(active_account.result[1], old_password, new_password);
-
-    if (result.status_code === 200) {
-        show_info_modal("Успешно", "Пароль успешно изменен")
-    } else if (result.status_code === 401) {
-        show_info_modal("Ошибка", "Неверный пароль")
-    } else {
-        show_info_modal("Ошибка", "Произошла непредвиденная ошибка. Попробуйте еще раз.");
-    }
-})
-
-document.getElementById("button_delete_account").addEventListener("click", async function() {
-    const password = document.getElementById("input_password").value;
-    const active_account = await window.pywebview.api.get_active_account();
-
-    const result = await window.pywebview.api.delete_account(active_account.result[1], password);
-
-    if (result.status_code === 200) {
-        show_info_modal("Успешно", "Аккаунт успешно удален")
-    } else if (result.status_code === 401) {
-        show_info_modal("Ошибка", "Неверный пароль")
-    } else {
-        show_info_modal("Ошибка", "Произошла непредвиденная ошибка. Попробуйте еще раз.");
-    }
-})
+// document.getElementById("button_update_password").addEventListener("click", async function() {
+//     const old_password = document.getElementById("input_old_password").value;
+//     const new_password = document.getElementById("input_new_password").value;
+//
+//     const active_account = await window.pywebview.api.get_active_account();
+//     const result = await window.pywebview.api.update_password(active_account.result[1], old_password, new_password);
+//
+//     if (result.status_code === 200) {
+//         show_info_modal("Успешно", "Пароль успешно изменен")
+//     } else if (result.status_code === 401) {
+//         show_info_modal("Ошибка", "Неверный пароль")
+//     } else {
+//         show_info_modal("Ошибка", "Произошла непредвиденная ошибка. Попробуйте еще раз.");
+//     }
+// })
+//
+// document.getElementById("button_delete_account").addEventListener("click", async function() {
+//     const password = document.getElementById("input_password").value;
+//     const active_account = await window.pywebview.api.get_active_account();
+//
+//     const result = await window.pywebview.api.delete_account(active_account.result[1], password);
+//
+//     if (result.status_code === 200) {
+//         show_info_modal("Успешно", "Аккаунт успешно удален")
+//     } else if (result.status_code === 401) {
+//         show_info_modal("Ошибка", "Неверный пароль")
+//     } else {
+//         show_info_modal("Ошибка", "Произошла непредвиденная ошибка. Попробуйте еще раз.");
+//     }
+// })
 
 document.getElementById("ram_range").addEventListener("input", async function() {
     let settings_json = await window.pywebview.api.readJson("data/settings.json");
