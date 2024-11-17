@@ -32,7 +32,18 @@ async function switchAccount(name) {
     const password = await window.pywebview.api.get_password(name);
     const result = await window.pywebview.api.account_login(name, password);
 
-    if (result.status_code === 401) {
+    if (result.status_code === 200) {
+        document.getElementById("currentProfileName").textContent = name;
+
+        var currentAvatarCanvas = document.getElementById("currentAvatarCanvas");
+        processMinecraftSkin(`https://raw.githubusercontent.com/Homanti/wacoskins/main/${name}_skin.png`, currentAvatarCanvas, 50, 50);
+
+        if (active_account["result"][6]) {
+            document.getElementById("btn_db").style.visibility = "visible";
+        } else {
+            document.getElementById("btn_db").style.visibility = "hidden";
+        }
+    } else {
         show_info_modal("Ошибка", "Неверный логин или пароль.");
         const accounts = await window.pywebview.api.readJson("data/credentials.json");
 
@@ -44,12 +55,6 @@ async function switchAccount(name) {
         }
     }
 
-
-    document.getElementById("currentProfileName").textContent = name;
-
-    var currentAvatarCanvas = document.getElementById("currentAvatarCanvas");
-    processMinecraftSkin(`https://raw.githubusercontent.com/Homanti/wacoskins/main/${name}_skin.png`, currentAvatarCanvas, 50, 50);
-
     toggleDropdown();
 }
 
@@ -59,9 +64,10 @@ window.addEventListener('pywebviewready', async function () {
     setInterval(fetchPlayersOnline, 5000);
 
     const active_account = await window.pywebview.api.get_active_account();
-    console.log(active_account);
-    if (active_account[6]) {
-        document.getElementById("btn_db").style.visibility = "visible";
+    if (active_account["status_code"] === 200) {
+        if (active_account["result"][6]) {
+            document.getElementById("btn_db").style.visibility = "visible";
+        }
     }
 });
 
