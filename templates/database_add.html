@@ -13,41 +13,44 @@
 
 <div class="container-login">
     <div class="login-form">
-        <h1 class="h3 mb-3 fw-normal">Регистрация на WacoRP</h1>
+        <h1 class="h3 mb-3 fw-normal">Добавить в базу данных (beta)</h1>
 
         <div class="form-floating">
-            <input type="text" class="form-control" id="input_register_nickname" placeholder="Никнейм" maxlength="16">
-            <label for="input_register_nickname">Никнейм</label>
-        </div>
-
-        <div class="form-floating">
-            <input type="password" class="form-control" id="input_register_password" placeholder="Пароль" maxlength="255" minlength="10">
-            <label for="input_register_password">Пароль</label>
+            <input type="text" class="form-control" id="input_database_nickname" placeholder="Никнейм" maxlength="16">
+            <label for="input_database_nickname">Никнейм</label>
         </div>
 
         <div class="form-floating">
-            <textarea type="text" class="form-control" id="input_register_history" placeholder="История вашего РП персонажа" maxlength="500"></textarea>
-            <label for="input_register_history">История вашего РП персонажа</label>
+            <input class="form-control" id="input_database_fullname" placeholder="ФИО" maxlength="255" minlength="10">
+            <label for="input_database_fullname">ФИО</label>
         </div>
 
         <div class="form-floating">
-            <input type="text" class="form-control" id="input_register_how_did_you_find" placeholder="Откуда узнали про WacoRP?" maxlength="255">
-            <label for="input_register_how_did_you_find">Откуда узнали про WacoRP?</label>
+            <input class="form-control" id="input_database_date_of_birthday" placeholder="Дата рождение" maxlength="255" minlength="10">
+            <label for="input_database_date_of_birthday">Дата рождение</label>
         </div>
 
-        <div class="input-group mb-3">
-            <p>Выберите скин</p>
-            <input type="file" class="form-control" id="input_register_skin" accept=".png">
+        <div class="form-floating">
+            <input class="form-control" id="input_database_passport_id" placeholder="Паспорт ID" maxlength="255" minlength="10">
+            <label for="input_database_passport_id">Паспорт ID</label>
         </div>
 
-        <div class="form-floating container_register_rules">
-            <input class="form-check-input" type="checkbox" value="remember-me" id="checkbox_register_rules">
-            <p onclick="let checkbox = document.getElementById('checkbox_register_rules'); checkbox.checked = !checkbox.checked; checkbox.dispatchEvent(new Event('change'));">
-                Я соглашаюсь с правилами РП и </p><a href="https://discord.gg/huezMnX5JM">WacoRP</a>
+        <div class="form-floating" style="display: flex">
+            <div class="btn-group dropup">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Улица
+                </button>
+                <ul class="dropdown-menu" style="z-index: 10">
+                    <li><a class="dropdown-item" href="#">Улица</a></li>
+                    <li><a class="dropdown-item" href="#">Отель</a></li>
+                </ul>
+            </div>
+            <div style="display: flex">
+                <input class="form-control" id="input_database_apartments" placeholder="Название улицы" maxlength="255" minlength="10">
+            </div>
         </div>
 
         <button class="btn btn-primary w-100 py-2" id="btn_register" disabled>Зарегистрироваться</button>
-        <button class="btn btn-secondary w-100 py-2" onclick="open_tab('login')">Вход</button>
     </div>
 </div>
 

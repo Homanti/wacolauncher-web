@@ -138,7 +138,7 @@ function updateDropdown(accounts) {
 
 window.onclick = function(event) {
     if (!event.target.closest('.profile-dropdown')) {
-        var dropdowns = document.getElementsByClassName("dropdown-menu");
+        var dropdowns = document.getElementsByClassName("profile-dropdown-menu");
         for (var i = 0; i < dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
             if (openDropdown.style.display === "block") {
