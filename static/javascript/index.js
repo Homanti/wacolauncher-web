@@ -52,10 +52,16 @@ async function switchAccount(name) {
     toggleDropdown();
 }
 
-window.addEventListener('pywebviewready', function() {
+window.addEventListener('pywebviewready', async function () {
     update_dropdown();
     fetchPlayersOnline();
     setInterval(fetchPlayersOnline, 5000);
+
+    const active_account = await window.pywebview.api.get_active_account();
+
+    if (active_account[6]) {
+        document.getElementById("btn_db").style.display = "block";
+    }
 });
 
 // Функция для обновления дропдауна с аккаунтами
