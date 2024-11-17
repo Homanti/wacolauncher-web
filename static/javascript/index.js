@@ -38,7 +38,7 @@ async function switchAccount(name) {
         var currentAvatarCanvas = document.getElementById("currentAvatarCanvas");
         processMinecraftSkin(`https://raw.githubusercontent.com/Homanti/wacoskins/main/${name}_skin.png`, currentAvatarCanvas, 50, 50);
 
-        if (active_account["result"][6]) {
+        if (result["result"][6]) {
             document.getElementById("btn_db").style.visibility = "visible";
         } else {
             document.getElementById("btn_db").style.visibility = "hidden";
