@@ -60,7 +60,7 @@ window.addEventListener('pywebviewready', async function () {
     const active_account = await window.pywebview.api.get_active_account();
 
     if (active_account[6]) {
-        document.getElementById("btn_db").style.display = "block";
+        document.getElementById("btn_db").style.hidden = "visible";
     }
 });
 
