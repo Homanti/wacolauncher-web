@@ -38,11 +38,11 @@ async function switchAccount(name) {
         var currentAvatarCanvas = document.getElementById("currentAvatarCanvas");
         processMinecraftSkin(`https://raw.githubusercontent.com/Homanti/wacoskins/main/${name}_skin.png`, currentAvatarCanvas, 50, 50);
 
-        if (result["result"][6]) {
-            document.getElementById("btn_db").style.visibility = "visible";
-        } else {
-            document.getElementById("btn_db").style.visibility = "hidden";
-        }
+        // if (result["result"][6]) {
+        //     document.getElementById("btn_db").style.visibility = "visible";
+        // } else {
+        //     document.getElementById("btn_db").style.visibility = "hidden";
+        // }
     } else {
         show_info_modal("Ошибка", "Неверный логин или пароль.");
         const accounts = await window.pywebview.api.readJson("data/credentials.json");
@@ -63,12 +63,12 @@ window.addEventListener('pywebviewready', async function () {
     fetchPlayersOnline();
     setInterval(fetchPlayersOnline, 5000);
 
-    const active_account = await window.pywebview.api.get_active_account();
-    if (active_account["status_code"] === 200) {
-        if (active_account["result"][6]) {
-            document.getElementById("btn_db").style.visibility = "visible";
-        }
-    }
+    // const active_account = await window.pywebview.api.get_active_account();
+    // if (active_account["status_code"] === 200) {
+    //     if (active_account["result"][6]) {
+    //         document.getElementById("btn_db").style.visibility = "visible";
+    //     }
+    // }
 });
 
 // Функция для обновления дропдауна с аккаунтами
