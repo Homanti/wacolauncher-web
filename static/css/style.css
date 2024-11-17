@@ -197,7 +197,7 @@ body, html {
 }
 
 /* Выпадающее меню профиля */
-.profile-dropdown-menu {
+.dropdown-menu {
     display: none; /* По умолчанию скрываем меню */
     position: absolute; /* Абсолютное позиционирование */
     background-color: #444; /* Цвет фона */
