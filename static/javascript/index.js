@@ -44,6 +44,7 @@ async function switchAccount(name) {
         }
     }
 
+
     document.getElementById("currentProfileName").textContent = name;
 
     var currentAvatarCanvas = document.getElementById("currentAvatarCanvas");
@@ -58,7 +59,7 @@ window.addEventListener('pywebviewready', async function () {
     setInterval(fetchPlayersOnline, 5000);
 
     const active_account = await window.pywebview.api.get_active_account();
-
+    console.log(active_account);
     if (active_account[6]) {
         document.getElementById("btn_db").style.visibility = "visible";
     }
