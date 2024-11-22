@@ -37,9 +37,6 @@ window.addEventListener('pywebviewready', async function() {
 
     document.getElementById("ram_input").value = ram;
     document.getElementById("ram_range").value = ram;
-
-    fetchPlayersOnline();
-    setInterval(fetchPlayersOnline, 5000);
 });
 
 // document.getElementById("button_update_skin").addEventListener("click", async function() {
@@ -124,13 +121,3 @@ document.getElementById("ram_input").addEventListener("blur", async function() {
     settings_json["ram"] = document.getElementById("ram_input").value;
     await window.pywebview.api.writeJson("data/settings.json", settings_json);
 });
-
-async function fetchPlayersOnline() {
-    const players_online = await pywebview.api.get_server_online();
-
-    if (players_online !== false) {
-        document.getElementById('players_online').textContent = `Игроков на сервере: ${players_online}`;
-    } else {
-        document.getElementById('players_online').textContent = `Сервер оффлайн`;
-    }
-}

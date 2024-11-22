@@ -60,8 +60,6 @@ async function switchAccount(name) {
 
 window.addEventListener('pywebviewready', async function () {
     update_dropdown();
-    fetchPlayersOnline();
-    setInterval(fetchPlayersOnline, 5000);
 
     // const active_account = await window.pywebview.api.get_active_account();
     // if (active_account["status_code"] === 200) {
@@ -151,13 +149,3 @@ window.onclick = function(event) {
 document.getElementById('btn_play').addEventListener('click', async function () {
     window.pywebview.api.start_minecraft();
 });
-
-async function fetchPlayersOnline() {
-    const players_online = await pywebview.api.get_server_online();
-
-    if (players_online !== false) {
-        document.getElementById('players_online').textContent = `Игроков на сервере: ${players_online}`;
-    } else {
-        document.getElementById('players_online').textContent = `Сервер оффлайн`;
-    }
-}
