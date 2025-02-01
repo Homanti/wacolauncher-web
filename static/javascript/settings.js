@@ -29,7 +29,7 @@ document.getElementById("ram_input").addEventListener("blur", function() {
 
 window.addEventListener('pywebviewready', async function() {
     const max_ram = await window.pywebview.api.get_max_ram();
-    const data = await window.pywebview.api.readJson("data/settings.json");
+    const data = await window.pywebview.api.read_json("data/settings.json");
     const ram = data["ram"];
 
     document.getElementById("ram_input").max = max_ram;
@@ -103,21 +103,21 @@ window.addEventListener('pywebviewready', async function() {
 // })
 
 document.getElementById("ram_range").addEventListener("input", async function() {
-    let settings_json = await window.pywebview.api.readJson("data/settings.json");
+    let settings_json = await window.pywebview.api.read_json("data/settings.json");
     if (settings_json === null) {
         settings_json = {};
     }
 
     settings_json["ram"] = document.getElementById("ram_range").value;
-    await window.pywebview.api.writeJson("data/settings.json", settings_json);
+    await window.pywebview.api.write_json("data/settings.json", settings_json);
 });
 
 document.getElementById("ram_input").addEventListener("blur", async function() {
-    let settings_json = await window.pywebview.api.readJson("data/settings.json");
+    let settings_json = await window.pywebview.api.read_json("data/settings.json");
     if (settings_json === null) {
         settings_json = {};
     }
 
     settings_json["ram"] = document.getElementById("ram_input").value;
-    await window.pywebview.api.writeJson("data/settings.json", settings_json);
+    await window.pywebview.api.write_json("data/settings.json", settings_json);
 });

@@ -45,7 +45,7 @@ async function switchAccount(name) {
         // }
     } else {
         show_info_modal("Ошибка", "Неверный логин или пароль.");
-        const accounts = await window.pywebview.api.readJson("data/credentials.json");
+        const accounts = await window.pywebview.api.read_json("data/credentials.json");
 
         if (accounts.length <= 0) {
             open_tab("login", "Ошибка", "Неверный логин или пароль.");
@@ -71,7 +71,7 @@ window.addEventListener('pywebviewready', async function () {
 
 // Функция для обновления дропдауна с аккаунтами
 async function update_dropdown() {
-    const accounts = await window.pywebview.api.readJson("data/credentials.json");
+    const accounts = await window.pywebview.api.read_json("data/credentials.json");
     updateDropdown(accounts);
 }
 

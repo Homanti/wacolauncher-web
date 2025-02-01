@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 window.addEventListener('pywebviewready', async function() {
-    const accounts = await window.pywebview.api.readJson("data/credentials.json");
+    const accounts = await window.pywebview.api.read_json("data/credentials.json");
 
     if (accounts.length > 0) {
         document.getElementById("header").style.display = 'block';
