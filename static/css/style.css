@@ -3,87 +3,62 @@ body, html, p {
     all: unset;
 }
 
-/* Основные стили для html и body */
-html, body {
-    margin: 0;
-    padding: 0;
+/* Основные стили для body и html */
+body, html {
+    font-family: "Rubik", sans-serif; /* Используем шрифт Rubik */
+    background: #2c2f33; /* Темный фон для всего документа */
+    color: #dee2e6;
+    margin: 0; /* Убираем отступы */
+    padding: 0; /* Убираем внутренние отступы */
     max-width: 1280px;
     max-height: 770px;
     min-width: 1280px;
     min-height: 770px;
-    font-family: "Rubik", sans-serif;
-    background: #2c2f33;
-    color: #dee2e6;
-    overflow: hidden;
 }
 
-/* Контейнер для фонового изображения, занимающего весь экран */
-.container-news {
-    position: fixed;      /* Фиксируем контейнер, чтобы он занимал весь экран */
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 0;           /* Фон находится на заднем плане */
-}
-
-/* Стили для фонового изображения */
-.img-news {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;    /* Изображение масштабируется с сохранением пропорций */
-}
-
+/* Стили для шапки сайта */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    margin-top: 10px;
-    background: #2c2f33;
-    border-radius: 20px;
+    display: flex; /* Используем Flexbox для выравнивания */
+    justify-content: space-between; /* Разделяем элементы по краям */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    border-bottom: solid #3e4147 1px; /* Нижняя граница шапки */
 }
 
-.header > p {
+.header>p {
     margin-left: 5px;
 }
 
 /* Стили для кнопки "Настройки" */
 .btn-settings {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 230px;
-    height: 60px;
-    padding: 5px 15px;
-    margin: 5px;
-    background-color: #444;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-family: "Press Start 2P", system-ui;
-    font-size: 16px;
-    cursor: pointer;
+    display: flex; /* Flexbox для выравнивания */
+    justify-content: center; /* Центрирование содержимого */
+    align-items: center; /* Вертикальное центрирование */
+    height: 50px; /* Высота кнопки */
+    padding: 5px 15px; /* Внутренние отступы */
+    margin: 5px; /* Внешний отступ */
+    background-color: #444; /* Цвет фона кнопки */
+    border: none; /* Убираем границу */
+    border-radius: 5px; /* Скругление углов */
+    color: white; /* Цвет текста */
+    font-family: "Press Start 2P", system-ui; /* Используем шрифт "Press Start 2P" */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Курсор в виде руки при наведении */
 }
 
+/* Отступ для иконки в кнопке */
 .icon-settings {
-    margin-right: 10px;
+    margin-right: 10px; /* Отступ справа для иконки */
 }
 
+/* Эффект при наведении на кнопку "Настройки" */
 .btn-settings:hover {
-    background-color: #555;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),
-    0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: #555; /* Изменение цвета фона при наведении */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); /* Тень при наведении */
 }
 
+/* Эффект при нажатии на кнопку "Настройки" */
 .btn-settings:active {
-    background-color: #333;
+    background-color: #333; /* Темный цвет фона при нажатии */
 }
 
 .btn-settings:disabled {
@@ -93,29 +68,35 @@ html, body {
 
 .btn-settings:disabled:hover {
     background-color: #444444;
-    box-shadow: none;
+    box-shadow: unset;
 }
 
 .btn-settings:disabled:active {
     background-color: #444444;
 }
 
-.footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    margin-bottom: 10px;
-    background: #2c2f33;
-    border-radius: 20px;
+/* Контейнер для новостей */
+.container-news {
+    display: flex; /* Используем Flexbox для выравнивания */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    margin-top: 2px; /* Небольшой верхний отступ */
+    margin-bottom: 2px; /* Небольшой нижний отступ */
+    padding: 0; /* Убираем внутренние отступы */
 }
 
-/* Прогресс-бар (оставляем без изменений) */
+/* Стили для футера */
+.footer {
+    display: flex; /* Flexbox для выравнивания */
+    position: relative;
+    background-color: #2c2f33;
+    justify-content: space-between; /* Разделяем элементы по краям */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    border-top: solid #3e4147 1px; /* Верхняя граница футера */
+    z-index: 2;
+}
+
 .progress-bar-container {
     position: absolute;
     background-color: #2c2f33;
@@ -123,8 +104,7 @@ html, body {
     width: 1280px;
     height: 30px;
     padding: 2px;
-    transition: margin-top 0.5s ease;
-    bottom: 40px;
+    transition: margin-top 0.5s ease; /* Плавный переход */
 }
 
 .progress-bar {
@@ -150,116 +130,126 @@ html, body {
 
 /* Стили для выпадающего меню профиля */
 .profile-dropdown {
-    width: 230px;
-    height: 60px;
+    width: 230px; /* Ширина кнопки */
+    height: 60px; /* Высота кнопки */
     margin-left: 5px;
 }
 
+/* Кнопка для профиля */
 .profile-button {
-    display: flex;
-    align-items: center;
-    background-color: #333;
-    padding: 5px 15px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    color: white;
-    font-family: "Rubik", sans-serif;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    text-align: left;
-    position: relative;
-    width: 230px;
-    height: 60px;
+    display: flex; /* Flexbox для выравнивания */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    background-color: #333; /* Цвет фона */
+    padding: 5px 15px; /* Внутренние отступы */
+    margin-bottom: 5px; /* Отступ */
+    border-radius: 5px; /* Скругление углов */
+    color: white; /* Цвет текста */
+    font-family: "Rubik", sans-serif; /* Шрифт Rubik */
+    cursor: pointer; /* Курсор в виде руки при наведении */
+    border: none; /* Убираем границу */
+    outline: none; /* Убираем обводку */
+    text-align: left; /* Выравнивание текста по левому краю */
+    position: relative; /* Относительное позиционирование для вложенных элементов */
+    width: 230px; /* Ширина кнопки */
+    height: 60px; /* Высота кнопки */
 }
 
+/* Эффект при наведении на кнопку "профиля" */
 .profile-button:hover {
-    background-color: #3a3a3a;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),
-    0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: #3a3a3a; /* Изменение цвета фона при наведении */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); /* Тень при наведении */
 }
 
 .profile-button:active {
     background-color: #333;
 }
 
+/* Стили для аватара в кнопке профиля */
 .profile-avatar {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+    width: 40px; /* Ширина аватара */
+    height: 40px; /* Высота аватара */
+    margin-right: 10px; /* Отступ справа для аватара */
 }
 
+/* Стили для деталей профиля */
 .profile-details {
-    flex-grow: 1;
-    max-width: 200px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    flex-grow: 1; /* Расширение на доступное пространство */
+    max-width: 200px; /* Максимальная ширина */
+    overflow: hidden; /* Скрываем выходящий за границы текст */
+    white-space: nowrap; /* Запрет переноса текста на новую строку */
+    text-overflow: ellipsis; /* Добавляем '...' при переполнении текста */
 }
 
+/* Имя профиля */
 .profile-name {
-    font-size: 14px;
-    font-weight: bold;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    font-size: 14px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    overflow: hidden; /* Скрываем выходящий за границы текст */
+    white-space: nowrap; /* Запрет переноса текста на новую строку */
+    text-overflow: ellipsis; /* Добавляем '...' при переполнении текста */
 }
 
+/* Иконка раскрытия меню */
 .dropdown-icon {
-    margin-left: auto;
-    font-size: 14px;
-    color: white;
+    margin-left: auto; /* Автоматический отступ слева */
+    font-size: 14px; /* Размер шрифта */
+    color: white; /* Цвет текста */
 }
 
+/* Выпадающее меню профиля */
 .dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: #444;
-    bottom: 100%;
-    margin-bottom: 5px;
+    display: none; /* По умолчанию скрываем меню */
+    position: absolute; /* Абсолютное позиционирование */
+    background-color: #444; /* Цвет фона */
+    bottom: 100%; /* Позиционируем меню над кнопкой */
+    margin-bottom: 5px; /* Отступ снизу */
     margin-left: -1px;
-    border-radius: 5px;
-    padding: 10px;
-    width: 232px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    border-radius: 5px; /* Скругление углов */
+    padding: 10px; /* Внутренние отступы */
+    width: 232px; /* Ширина меню */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Тень для меню */
+    z-index: 1; /* Повышаем приоритет по оси z */
+
 }
 
+/* Кнопка внутри выпадающего меню */
 .dropdown-menu .profile-button {
-    width: 100%;
-    margin-bottom: 5px;
+    width: 100%; /* Полная ширина */
+    margin-bottom: 5px; /* Отступ снизу */
 }
 
+/* Последняя кнопка в меню */
 .dropdown-menu .profile-button:last-child {
-    margin-bottom: 0;
+    margin-bottom: 0; /* Убираем нижний отступ */
 }
 
 /* Стили для кнопки "Играть" */
 .btn-play {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 5px;
-    padding: 5px 15px;
-    background-color: rgb(0, 142, 70);
-    border: none;
-    border-radius: 5px;
-    font-family: "Press Start 2P", system-ui;
-    font-size: 18px;
-    color: white;
-    width: 230px;
-    height: 60px;
-    cursor: pointer;
+    display: flex; /* Flexbox для выравнивания */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    justify-content: center; /* Центрирование содержимого */
+    margin: 5px; /* Внешний отступ сверху и снизу, центрирование по горизонтали */
+    padding: 5px 15px; /* Внутренние отступы */
+    background-color: rgb(0, 142, 70); /* Зеленый фон для кнопки */
+    border: none; /* Убираем границу */
+    border-radius: 5px; /* Скругление углов */
+    font-family: "Press Start 2P", system-ui; /* Шрифт "Press Start 2P" */
+    font-size: 18px; /* Размер шрифта */
+    color: white; /* Цвет текста */
+    width: 230px; /* Ширина кнопки */
+    height: 60px; /* Высота кнопки */
+    cursor: pointer; /* Курсор в виде руки при наведении */
 }
 
+/* Эффект при наведении на кнопку "Играть" */
 .btn-play:hover {
-    background-color: rgb(10, 149, 78);
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),
-    0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: rgb(10, 149, 78); /* Более светлый зеленый цвет при наведении */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); /* Тень при наведении */
 }
 
+/* Эффект при нажатии на кнопку "Играть" */
 .btn-play:active {
-    background-color: #0a552a;
+    background-color: #0a552a; /* Темный зеленый цвет при нажатии */
 }
 
 .btn-play:disabled {
@@ -269,7 +259,7 @@ html, body {
 
 .btn-play:disabled:hover {
     background-color: #444444;
-    box-shadow: none;
+    box-shadow: unset;
 }
 
 .btn-play:disabled:active {
@@ -277,33 +267,35 @@ html, body {
 }
 
 .btn-db {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 5px;
-    padding: 5px 15px;
-    background-color: #444;
-    border: none;
-    border-radius: 5px;
-    font-family: "Press Start 2P", system-ui;
-    font-size: 15px;
-    color: white;
-    width: 230px;
-    height: 60px;
-    cursor: pointer;
+    display: flex; /* Flexbox для выравнивания */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    justify-content: center; /* Центрирование содержимого */
+    margin: 5px; /* Внешний отступ сверху и снизу, центрирование по горизонтали */
+    padding: 5px 15px; /* Внутренние отступы */
+    background-color: #444; /* Цвет фона кнопки */
+    border: none; /* Убираем границу */
+    border-radius: 5px; /* Скругление углов */
+    font-family: "Press Start 2P", system-ui; /* Шрифт "Press Start 2P" */
+    font-size: 15px; /* Размер шрифта */
+    color: white; /* Цвет текста */
+    width: 230px; /* Ширина кнопки */
+    height: 60px; /* Высота кнопки */
+    cursor: pointer; /* Курсор в виде руки при наведении */
 }
 
-.btn-db:hover {
-    background-color: rgb(10, 149, 78);
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),
-    0 17px 50px 0 rgba(0,0,0,0.19);
+/* Эффект при наведении на кнопку "Играть" */
+.btn-play:hover {
+    background-color: rgb(10, 149, 78); /* Более светлый зеленый цвет при наведении */
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); /* Тень при наведении */
 }
 
-.btn-db:active {
-    background-color: #0a552a;
+/* Эффект при нажатии на кнопку "Играть" */
+.btn-play:active {
+    background-color: #0a552a; /* Темный зеленый цвет при нажатии */
 }
 
-/* Секция "Настройки" */
+/* Настройки */
+
 .container-settings {
     display: inline-block;
     height: 100%;
@@ -321,16 +313,16 @@ html, body {
     justify-content: center;
 }
 
-.range-input > .form-range {
+.range-input>.form-range {
     margin-right: 5px;
 }
 
-.range-input > p {
+.range-input>p {
     margin-left: 5px;
     margin-right: 5px;
 }
 
-.range-input > .form-control {
+.range-input>.form-control {
     width: 100px;
 }
 
@@ -346,12 +338,13 @@ html, body {
     padding-left: 5px;
 }
 
-.container-settings-profile > p {
+.container-settings-profile>p {
     display: block;
     margin: 0 0 10px;
 }
 
 /* Modal */
+
 .modal-input-skin {
     margin: 5px 0 10px;
 }
@@ -364,12 +357,13 @@ html, body {
     margin: 5px 0 0;
 }
 
-/* Стили для логина / регистрации */
+/* Логин / регистрация */
+
 .container-login {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Выровнять по вертикали */
     height: 100vh;
 }
 
@@ -378,11 +372,11 @@ html, body {
     width: 320px;
 }
 
-.form-floating {
+.form-floating{
     margin-bottom: 5px;
 }
 
-.login-form > .btn-primary {
+.login-form>.btn-primary{
     margin-bottom: 5px;
 }
 
@@ -399,13 +393,13 @@ html, body {
     flex-direction: column;
 }
 
-.input-group > .form-control {
+.input-group>.form-control{
     width: 100%;
     margin-top: 5px;
     margin-bottom: -10px;
 }
 
-.input-group > p {
+.input-group>p{
     margin: 0;
 }
 
@@ -413,7 +407,7 @@ html, body {
     height: 200px;
 }
 
-.container_register_rules > p {
+.container_register_rules>p {
     margin: 0;
     font-size: 15px;
 }
