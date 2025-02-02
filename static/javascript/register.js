@@ -30,12 +30,12 @@ async function register_account() {
     const NicknameisValid = /^[A-Za-z0-9-_]+$/.test(nickname.value);
     const PasswordisValid = /^[A-Za-z0-9-_]+$/.test(password.value);
 
-    if (nickname.value.length < 3) {
-        show_info_modal("Ошибка", "Никнейм должен содержать как минимум 3 символа.")
+    if (nickname.value.length < 3 || nickname.value.length > 10) {
+        show_info_modal("Ошибка", "Никнейм должен содержать от 3 до 10 символов.")
     } else if (!NicknameisValid && !PasswordisValid) {
         show_info_modal("Ошибка", "Никнейм или пароль не должен содержать кириллицу, пробелы и специальные знаки.")
-    } else if (password.value.length < 6) {
-        show_info_modal("Ошибка", "Пароль должен содержать как минимум 6 символов.")
+    } else if (password.value.length < 6 || nickname.value.length > 255) {
+        show_info_modal("Ошибка", "Пароль должен содержать от 6 до 255 символов.")
     } else {
         try {
             const skinFile = skin.files[0];
